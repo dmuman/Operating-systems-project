@@ -1,0 +1,23 @@
+#!/bin/bash
+
+### Grupo: SO-TI-02
+# Aluno 1: Guilherme Lima (fc56699)
+# Aluno 2: Dmytro Umanskyi (fc59348)
+# Aluno 3: Duarte Fernandes (fc55327)
+
+PYTHON="python3" # Pode-se modificar esta variavel, se necessario
+PROGRAM="pwordcount.py" # Nao pode modificar esta variavel
+
+#Validar o número de argumentos antes de chamar o Python (Ver TP02)
+if [ $# -lt 3 ]
+then
+    echo "Uso: ./pwordcount [-m t|u|o] [-p n] [-i s] [-l f] ficheiros.."
+    exit 1
+fi
+#Validar que o ficheiro $PROGRAM existe antes de chama-lo (Ver TP02)
+if [ ! -e $PROGRAM ]
+then
+    echo "Erro: $PROGRAM não existe."
+    exit 1
+fi
+${PYTHON} ${PROGRAM} $@
